@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 21st Birthday, Sneha! 🎂✨</title>
+  
+  <!-- SEO & Social Metadata -->
+  <meta name="description" content="A special 21st birthday card and interactive keepsake for Sneha. Celebrating friendship, memories, and wishes.">
+  <meta property="og:title" content="Happy 21st Birthday, Sneha! 🌸">
+  <meta property="og:description" content="An interactive birthday celebration filled with memories, envelope notes, friendship counter, and wishes.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient Floating Heart & Sparkle Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Sound / Music Controls Bar & Continuous Audio Track -->
+  <audio id="bg-music-audio" src="images/aud.mpeg" loop preload="auto" autoplay></audio>
+  <aside class="audio-control-bar" aria-label="Audio Controls">
+    <button id="music-toggle-btn" class="music-btn" aria-label="Toggle Birthday Music">
+      <span class="music-icon" id="music-icon">🎵</span>
+      <span class="music-text">Pause Birthday Tune</span>
+    </button>
+  </aside>
+
+  <!-- SECTION 1: HERO ENVELOPE OPENING EXPERIENCE -->
+  <header class="hero-section" id="hero">
+    <div class="hero-container">
+      <!-- 3D Envelope Wrapper -->
+      <div class="intro-envelope-wrapper" id="intro-envelope">
+        <div class="envelope-back"></div>
+        <div class="envelope-card-preview">
+          <div class="preview-header">
+            <span class="badge">21st Milestone</span>
+            <h1 class="hero-title">Happy 21st Birthday,<br><span class="highlight-name">Sneha!</span> ✨</h1>
+            <p class="hero-subtitle">A digital memory box of warmth, laughs, and heartfelt notes crafted just for you.</p>
+          </div>
+        </div>
+        <div class="envelope-front-flap" id="envelope-flap">
+          <div class="wax-seal" id="wax-seal-btn" title="Click to Open Your Card">
+            <span class="seal-icon">💖</span>
+            <span class="seal-text">21</span>
+          </div>
+        </div>
+        <div class="envelope-pocket"></div>
+      </div>
+
+      <div class="open-action-area">
+        <button id="open-card-btn" class="btn-primary pulse-btn">
+          <span>Open Your Birthday Card</span> 💌
+        </button>
+        <p class="scroll-hint">Click above or scroll down to explore</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN EXPERIENCE CONTAINER -->
+  <main id="main-content" class="main-content hidden-initially">
+    
+    <!-- SECTION 2: LIVE FRIENDSHIP COUNTER -->
+    <section class="section counter-section" id="friendship-counter-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-heading">✨ Time Flies When You're Iconic ✨</span>
+          <h2 class="section-title">The Friendship Counter</h2>
+          <p class="section-desc">Measuring the exact time we've been best friends since <strong>November 23, 2024</strong>:</p>
+        </div>
+
+        <div class="counter-grid" id="counter-grid">
+          <div class="counter-card">
+            <div class="counter-value" id="count-days">000</div>
+            <div class="counter-label">Days</div>
+          </div>
+          <div class="counter-card">
+            <div class="counter-value" id="count-hours">00</div>
+            <div class="counter-label">Hours</div>
+          </div>
+          <div class="counter-card">
+            <div class="counter-value" id="count-minutes">00</div>
+            <div class="counter-label">Minutes</div>
+          </div>
+          <div class="counter-card">
+            <div class="counter-value" id="count-seconds">00</div>
+            <div class="counter-label">Seconds</div>
+          </div>
+        </div>
+
+        <p class="counter-footnote">
+          ...and counting thousands of laughs, late-night texts, and unforgettable moments! 💖
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 8 ENCHANTED PHOTO GALLERY -->
+    <section class="section gallery-section" id="gallery-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-heading">📸 Snapshots of Joy 📸</span>
+          <h2 class="section-title">Sneha's Memory Gallery</h2>
+          <p class="section-desc">Hover over photos for 3D tilt effects & click any frame to enlarge.</p>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Dynamically populated from script.js PHOTO_GALLERY_DATA -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 8 ENVELOPE NOTES -->
+    <section class="section notes-section" id="notes-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-heading">💌 Open When You Need a Smile 💌</span>
+          <h2 class="section-title">Eight Letters for 21 Years</h2>
+          <p class="section-desc">Click each envelope to break the seal and read your note.</p>
+        </div>
+
+        <div class="notes-grid" id="notes-grid">
+          <!-- Dynamically populated from script.js ENVELOPE_MESSAGES -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE CANDLE & MAKE A WISH -->
+    <section class="section wish-section" id="wish-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-heading">🎂 Make a Wish Ceremony 🎂</span>
+          <h2 class="section-title">Blow Out Sneha's 21st Candle</h2>
+          <p class="section-desc">Click the glowing flame to extinguish it, make your wish, and release heart confetti!</p>
+        </div>
+
+        <div class="cake-card-container">
+          <!-- 3D SVG & CSS Cake -->
+          <div class="cake-display" id="cake-display">
+            <div class="cake-stand"></div>
+            <div class="cake-body">
+              <div class="cake-layer layer-bottom"></div>
+              <div class="cake-layer layer-top">
+                <div class="frosting-drips"></div>
+              </div>
+              <!-- Number 21 Candle -->
+              <div class="candle-wrapper" id="candle-wrapper">
+                <div class="candle-number">21</div>
+                <div class="candle-wick"></div>
+                <div class="candle-flame lit" id="candle-flame" title="Click to blow out!">
+                  <div class="flame-core"></div>
+                  <div class="flame-glow"></div>
+                </div>
+                <div class="smoke-particles" id="smoke-particles"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wish-controls">
+            <button id="blow-candle-btn" class="btn-primary">
+              <span id="blow-btn-text">Extinguish Flame & Wish 🕯️</span>
+            </button>
+            <div class="wish-banner hidden" id="wish-banner">
+              ✨ <strong>Wish Granted!</strong> May your 21st year be filled with pure magic, laughter, and endless success, Sneha! 🎉
+            </div>
+          </div>
+        </div>
+
+        <!-- PLAYFUL BIRTHDAY TITLE GENERATOR -->
+        <div class="title-generator-card">
+          <h3 class="generator-heading">👑 Sneha's Official Birthday Title 👑</h3>
+          <p class="generator-sub">Need a new royal title for turning 21? Spin the title wheel!</p>
+
+          <div class="title-display-box" id="title-display-box">
+            <span class="sparkle-icon">✨</span>
+            <span id="generated-title-text" class="title-text">Click below to generate title...</span>
+            <span class="sparkle-icon">✨</span>
+          </div>
+
+          <button id="generate-title-btn" class="btn-secondary">
+            <span>Spin New Title</span> 🎲
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CLOSING LETTER & EDITABLE SIGNATURE -->
+    <section class="section closing-section" id="closing-section">
+      <div class="container text-center">
+        <div class="parchment-letter">
+          <div class="letter-corner top-left">🌸</div>
+          <div class="letter-corner top-right">🌸</div>
+          <div class="letter-corner bottom-left">🌸</div>
+          <div class="letter-corner bottom-right">🌸</div>
+
+          <h2 class="letter-heading">Here's to Chapter 21, Sneha! 🥂</h2>
+          
+          <p class="letter-body">
+            May this new year bring you unforgettable adventures, deep joy, warm coffee, late-night talks, 
+            and every single dream you've been working towards. Never forget how loved, appreciated, 
+            and extraordinary you are to everyone around you.
+          </p>
+
+          <p class="letter-highlight">
+            "Keep shining, keep laughing, and keep being unapologetically you."
+          </p>
+
+          <div class="letter-signature-area">
+            <p class="sig-prefix">With all my love & best wishes,</p>
+            <div class="editable-sig-box">
+              <span contenteditable="true" id="signature-input" class="editable-signature" title="Click to edit signature">Your Best Friend</span>
+              <span class="pen-icon">✍️</span>
+            </div>
+            <p class="sig-hint">(Click text above to customize signature)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container text-center">
+      <p>Made with ❤️ for Sneha's 21st Birthday • Nov 23, 2024 to Infinity</p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX MODAL FOR GALLERY ENLARGE -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close photo view">&times;</button>
+      <div class="lightbox-img-wrapper">
+        <img id="lightbox-img" src="" alt="Enlarged photo memory">
+      </div>
+      <div class="lightbox-caption-area">
+        <span class="lightbox-date" id="lightbox-date"></span>
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-desc" id="lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULLSCREEN SLIDESHOW OVERLAY -->
+  <div id="slideshow-overlay" class="slideshow-overlay" aria-hidden="true">
+    <div class="slideshow-backdrop"></div>
+
+    <!-- Top Bar: Counter + Close -->
+    <div class="slideshow-topbar">
+      <div class="slideshow-counter">
+        <span id="slideshow-current">1</span> / <span id="slideshow-total">0</span>
+      </div>
+      <button id="slideshow-close-btn" class="slideshow-close" aria-label="Close Slideshow">&times;</button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="slideshow-progress-track">
+      <div class="slideshow-progress-bar" id="slideshow-progress-bar"></div>
+    </div>
+
+    <!-- Media Display Area -->
+    <div class="slideshow-stage" id="slideshow-stage">
+      <!-- Dynamically filled by JS -->
+    </div>
+
+    <!-- Caption Area -->
+    <div class="slideshow-caption-area">
+      <p class="slideshow-caption-text" id="slideshow-caption"></p>
+      <span class="slideshow-date-text" id="slideshow-date"></span>
+    </div>
+
+    <!-- Nav Arrows -->
+    <button id="slideshow-prev" class="slideshow-nav slideshow-nav-prev" aria-label="Previous">&lsaquo;</button>
+    <button id="slideshow-next" class="slideshow-nav slideshow-nav-next" aria-label="Next">&rsaquo;</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
